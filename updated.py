@@ -1030,38 +1030,38 @@ elif page == "₿ Cryptocurrency":
 
 
 
-    # =======================
-    # Crypto News Section
-    # =======================
-    st.subheader("📰 Latest Crypto News")
+    # # =======================
+    # # Crypto News Section
+    # # =======================
+    # st.subheader("📰 Latest Crypto News")
 
-    if newsapi:
-        try:
-            with st.spinner("Fetching crypto news..."):
-                news = newsapi.get_everything(
-                    q=crypto_symbol.replace("USDT", ""),
-                    language="en",
-                    sort_by="publishedAt",
-                    page_size=5
-                )
+    # if newsapi:
+    #     try:
+    #         with st.spinner("Fetching crypto news..."):
+    #             news = newsapi.get_everything(
+    #                 q=crypto_symbol.replace("USDT", ""),
+    #                 language="en",
+    #                 sort_by="publishedAt",
+    #                 page_size=5
+    #             )
 
-            if news and news.get("articles"):
-                for article in news["articles"]:
-                    st.markdown(f"""
-                    <div class='news-card'>
-                        <h4>{article['title']}</h4>
-                        <p><small>{article['source']['name']} • {article['publishedAt'][:10]}</small></p>
-                        <p>{article['description']}</p>
-                        <a href="{article['url']}" target="_blank">Read more →</a>
-                    </div>
-                    """, unsafe_allow_html=True)
-            else:
-                st.info("No recent crypto news found")
+    #         if news and news.get("articles"):
+    #             for article in news["articles"]:
+    #                 st.markdown(f"""
+    #                 <div class='news-card'>
+    #                     <h4>{article['title']}</h4>
+    #                     <p><small>{article['source']['name']} • {article['publishedAt'][:10]}</small></p>
+    #                     <p>{article['description']}</p>
+    #                     <a href="{article['url']}" target="_blank">Read more →</a>
+    #                 </div>
+    #                 """, unsafe_allow_html=True)
+    #         else:
+    #             st.info("No recent crypto news found")
 
-        except Exception as e:
-            st.warning(f"News loading failed: {e}")
-    else:
-        st.warning("News API not configured")
+    #     except Exception as e:
+    #         st.warning(f"News loading failed: {e}")
+    # else:
+    #     st.warning("News API not configured")
 
 
 
