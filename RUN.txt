@@ -1,0 +1,43 @@
+How to run Market Genius (Streamlit app)
+
+These steps work on Windows, macOS, and Linux. Short and simple.
+
+1) Install Python 3.10 or 11 (if you don’t have it)
+   - Windows: https://www.python.org/downloads/windows/
+   - macOS: https://www.python.org/downloads/macos/
+   - Linux: Use your package manager or python.org
+
+2) Create a clean virtual environment (recommended)
+   - Windows PowerShell:
+     python -m venv .venv
+     .\.venv\Scripts\Activate.ps1
+   - Windows CMD:
+     python -m venv .venv
+     .\.venv\Scripts\activate.bat
+   - macOS/Linux (bash/zsh):
+     python3 -m venv .venv
+     source .venv/bin/activate
+
+3) Install the app dependencies
+   - Quick run (without TensorFlow):
+     pip install -r requirements.txt
+   - If you want AI model load/prediction (TensorFlow):
+     pip install tensorflow
+     (On some Windows systems, long paths cause install issues. If so,
+      move this project to a short path like C:\mg and retry.)
+
+4) Run the app
+   streamlit run updated.py
+
+5) Open your browser
+   http://localhost:8501
+
+Notes:
+- If you see an error about missing TensorFlow when loading a .h5 model, install TensorFlow (step 3).
+- If port 8501 is busy, Streamlit will choose another port and show it in the terminal.
+- To stop the app, press Ctrl+C in the terminal.
+
+Troubleshooting:
+- "streamlit not recognized": Activate the virtual environment (step 2) and try again.
+- "Module not found" errors: Run step 3 to install packages in the active environment.
+- TensorFlow install issues on Windows: Use a short folder path (e.g., C:\mg), and ensure Python 3.10–3.11.
